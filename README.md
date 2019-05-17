@@ -2,7 +2,7 @@
 That frontend app was enhanced by me to use with Node.js
 
 Example of site implemented on Angular + Node.js
-This demo project is still under construction.
+**This demo project is still under construction.**
 
 To develop it I'm using following:
 
