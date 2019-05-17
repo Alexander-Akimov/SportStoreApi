@@ -21,10 +21,7 @@ Back-end:
 
 To enable support for ECMAScript modules (without Babel) I use [--experimental-modules](https://nodejs.org/api/esm.html#esm_ecmascript_modules) flag.
 
-
-
-
-App settings reside in settings.js:
+App settings reside in settings.js file:
 
 ```javascript
 export default {
@@ -33,7 +30,11 @@ export default {
   "bodyLimit": "100kb"
 }
 ```
+*Public* folder contains prod version of Angular app.
 
+> store url - http://localhost:3005/store
+
+> admin url - http://localhost:3005/admin
 
 
 
