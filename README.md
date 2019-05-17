@@ -8,11 +8,11 @@ This demo project is still under construction.
 To develop it i'm using following:
 
 Fron-End:
-*Angular 7
-*RxJs
-*Bootstrap
+* Angular 7
+* RxJs
+* Bootstrap
 
 Back-end:
-*Node.js
-*MongoDB + mongoose ODM lib
-*JWT tokens for authentication
+* Node.js
+* MongoDB + mongoose ODM lib
+* JWT tokens for authentication
