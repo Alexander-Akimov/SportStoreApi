@@ -17,22 +17,25 @@ export default (app, passport) => {
   //passport config
   app.use(passport.initialize());
 
+  //костыль
+  const __dirname = path.dirname(new URL(import.meta.url).pathname).slice(1);
+  //console.log(__dirname);
+  //app.use('/adm', express.static(__dirname + "/../../admin"));
+  app.use(express.static(__dirname + "/../../public"));
+
+  app.use('/admin',
+    (req, res, next) => { console.log('admin route is handled'); next(); },
+    express.static(__dirname + "/../../public"));
 
 
   let apiRouter = express.Router();
   configRouting(apiRouter, passport);
   app.use('/api', apiRouter);
 
-  //app.use(assume404);   
 
-  //костыль
-  const __dirname = path.dirname(new URL(import.meta.url).pathname).slice(1);
-  //console.log(__dirname);
-  //app.use('/adm', express.static(__dirname + "/../../admin"));
-  app.use(express.static(__dirname + "/../../public"));
-  app.use('/admin',
-    (req, res, next) => { console.log('admin route is handled'); next(); },
-    express.static(__dirname + "/../../public"));
+
+  app.use(assume404);
+
 
 
 }

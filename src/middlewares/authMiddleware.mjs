@@ -19,7 +19,7 @@ const generateAccessToken = (req, res, next) => {
 const respond = (req, res) => {
   res.status(200).json({
     user: req.user.username,
-    token: req.token
+    access_token: req.token
   });
 }
 
@@ -33,7 +33,11 @@ let unAuthHandle = function (err, req, res, next) {
 };
 
 let assume404 = (req, res, next) => {
-  res.redirect('/');//redirect if the request cannot be hadled
+  //console.log('assume404 handler: ' + res.statusCode);
+  res.status(404).json({ messsage: 'Not Found' });
+  // res.statusCode = 404;
+  // res.end();
+  //res.redirect('/');//redirect if the request cannot be hadled
 };
 
 export { authenticate, generateAccessToken, respond, unAuthHandle, assume404 }

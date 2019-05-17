@@ -21,7 +21,6 @@ configMongoDb(db => {
   //internal middleware
 });
 
-
 app.server.listen(settings.port);
 console.log(`Started on port ${app.server.address().port}`);
 

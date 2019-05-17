@@ -9,6 +9,7 @@ export default (callback) => {
   // Connect to the database before starting the application server.
   mongoose.set('useCreateIndex', true);
   mongoose.set('useNewUrlParser', true);
+  mongoose.set('useFindAndModify', false);
   mongoose.connect(config.mongoUrl, function (err, database) {
     if (err) {
       console.log(err);
