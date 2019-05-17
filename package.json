@@ -6,7 +6,7 @@
   "main": "./src/index.js",
   "repository": {
     "type": "git",
-    "url": "git@github.com:Alexander-Akimov/mac-chat-api.git"
+    "url": "git@github.com:Alexander-Akimov/SportStoreApi.git"
   },
   "scripts": {
     "start": "node --experimental-modules src/index.js",
