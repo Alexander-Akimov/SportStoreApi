@@ -61,7 +61,12 @@ export default function SportsStoreController(router) {
     };
 
     this.deleteProduct = function (req, res) {
-
+        Product.deleteOne({ _id: req.params.id }, (err, product) => {
+            if (err) {
+                res.status(500).json({ message: err });
+            }
+            res.status(200).json(product);
+        });
     };
 
     this.addOrder = function (req, res) {
