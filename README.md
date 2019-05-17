@@ -2,7 +2,6 @@
 That frontend app was enhanced by me to use with Node.js
 
 Example of site implemented on Angular + Node.js
-
 This demo project is still under construction.
 
 To develop it I'm using following:
@@ -20,6 +19,8 @@ Back-end:
 * JWT tokens + passport.js for authentication
 
 To enable support for ECMAScript modules (without Babel) I use [--experimental-modules](https://nodejs.org/api/esm.html#esm_ecmascript_modules) flag.
+
+E.g.: ```node --experimental-modules src/index.js```
 
 App settings reside in settings.js file:
 
