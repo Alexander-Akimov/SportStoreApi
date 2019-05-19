@@ -1,15 +1,16 @@
 import mongoose from 'mongoose';
 
+var Schema = mongoose.Schema;
 const ObjectId = mongoose.Schema.Types.ObjectId;
 
-const productSchema = new mongoose.Schema({
+const productSchema = new Schema({
     name: String,
     description: String,
     price: Number,
     category: { type: ObjectId, ref: 'Category' }
 });
 
-productSchema.virtual('id').get(function(){
+productSchema.virtual('id').get(function () {
     return this._id.toHexString();
 });
 
@@ -22,7 +23,5 @@ productSchema.set('toJSON', {
     virtuals: true
 });
 
-
-
 let Product = mongoose.model('Product', productSchema);
-export default Product
+export { Product, productSchema }

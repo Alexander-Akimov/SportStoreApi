@@ -1,27 +1,47 @@
 import testData from '../testdata.js'
 import Mongoose from 'mongoose';
-import Product from '../models/product.js';
+import { Product } from '../models/product.js';
 import Category from '../models/category.js';
+import ProductsResp from '../models/productsResp.js';
 
 const ObjectId = Mongoose.Types.ObjectId;
 
 export default function SportsStoreController(router) {
     this.router = router;
 
+    let mapProduct = function (product) {
+        let prod = product.toJSON();
+        //console.log(prod);
+        return new ProductsResp(
+            prod.id,
+            prod.name,
+            prod.description,
+            prod.category.id,
+            prod.category.name
+        )
+    };
+    //    this.mapProduct.bind(this);
+
     this.getAll = function (req, res) {
-        //this.testData.bind(this);
+
+
         Product.find({})
             .populate('category', 'name')
             .exec((err, products) => {
                 if (err) {
                     res.status(500).json({ message: err });
                 }
+                //res.status(200).json(products);
+                let response = products.map(mapProduct);
                 //console.log(products);
                 //console.log(products[0].toJSON());
-                res.status(200).json(products);
+                res.status(200).json(response);
             });
         //res.status(200).json({ products: testData().products, categories: testData().categories });
     };
+
+
+
 
     this.addProduct = function (req, res) {
         let newProduct = new Product();
@@ -42,7 +62,7 @@ export default function SportsStoreController(router) {
     };
 
     this.updateProduct = function (req, res) {
-        let productToUpdate = {            
+        let productToUpdate = {
             name: req.body.name,
             category: req.body.categoryId,
             description: req.body.description,
