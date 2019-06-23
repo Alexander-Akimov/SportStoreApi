@@ -7,7 +7,7 @@ Example of site implemented on Angular + Node.js
 To develop it I'm using following:
 
 Fron-End:
-* Angular 7
+* Angular 8
 * RxJs
 * Bootstrap
 * TypeScript
