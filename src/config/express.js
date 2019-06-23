@@ -13,7 +13,6 @@ export default (app, passport) => {
 
   app.use(express.json());
 
-
   //passport config
   app.use(passport.initialize());
 
@@ -23,19 +22,14 @@ export default (app, passport) => {
   //app.use('/adm', express.static(__dirname + "/../../admin"));
   app.use(express.static(__dirname + "/../../public"));
 
-  app.use('/admin',
-    (req, res, next) => { console.log('admin route is handled'); next(); },
-    express.static(__dirname + "/../../public"));
-
+  app.use('/admin', (req, res, next) => {
+    console.log('admin route is handled');
+    next();
+  }, express.static(__dirname + "/../../public"));
 
   let apiRouter = express.Router();
   configRouting(apiRouter, passport);
   app.use('/api', apiRouter);
 
-
-
   app.use(assume404);
-
-
-
 }
